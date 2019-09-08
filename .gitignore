@@ -1,1 +1,4 @@
 venv/*
+mysite/db.*
+__pycache__
+migrations
