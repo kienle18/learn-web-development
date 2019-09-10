@@ -17,20 +17,29 @@ body {
 
 .masthead {
     /*background: #3398E1;*/
-    /*height: auto;*/
+    background: #2d3246;
+    height: auto;
     padding-bottom: 15px;
-    /*box-shadow: 0 16px 48px #E3E7EB;*/
-    padding-top: 10px;
-}
-
-.my_header {
-    background: #3398E1;
-    /*height: auto;*/
-    padding-bottom: 15px;
-    /*box-shadow: 0 16px 48px #E3E7EB;*/
+    box-shadow: 0 16px 48px #E3E7EB;
     padding-top: 10px;
 }
 
 .card{
     box-shadow: 0 16px 48px #E3E7EB;
+}
+
+.my-footer {
+    padding-top: 20px;
+}
+
+.this-nav-bar {
+    padding-top: 20px;
+}
+
+.big-box {
+    height: 500px;
+}
+
+.mini-box {
+    height: 250px;
 }
