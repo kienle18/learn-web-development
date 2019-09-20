@@ -37,42 +37,62 @@
 }
 
 .navbar {
-  font-family: Open Sans; 
-  font-size: 16px;
+  /*font-family: Open Sans; */
+  font-family: sans-serif !important; 
+  /*font-size: 21px;*/
   font-weight: bold;
-    background-color: #2b2d32;
-    border-color: 0.5px solid white;
+  border-color: 0.5px solid white;
 }
 
-header[role="banner"] {
-  #logo-main {
-    display: block;
-    margin: 20px auto;
-  }
+.this-nav-bar {
+    /*background-color: #18354c;*/
+    background-color: #2b2d32;
+    color: white;
+    
 }
 
 </style>
 
 <header role="banner">
-    <!--<img id="logo-main" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/32877/logo-thing.png" width="200" alt="Logo Thing main logo">-->
-  <nav class="navbar navbar-inverse navbar-expand-lg bg-dark navbar-dark this-nav-bar">
   <!--<nav class="navbar navbar-inverse navbar-expand-lg">-->
+  <nav class="navbar navbar-inverse navbar-expand-lg">
     <div class="container">
       <div class="navbar-header">
-        <!--<img id="logo-main" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/32877/logo-thing.png" width="200" alt="Logo Thing main logo">-->
-      <!--</div>-->
-        <!--<div class="row">-->
-        <!--  <a class="navbar-brand center" href="#">NAVBAR</a>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-            <!-- Navbar brand -->
-            <!--<a class="navbar-brand center" href="#">NAVBAR</a>-->
-            <!-- Collapse button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
               aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <img id="logo-main" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/32877/logo-thing.png" width="200" alt="Logo Thing main logo">
+            <img id="logo-main" src="{% static 'blog/images/hb_logo.png' %}" width="200" alt="Logo Thing main logo">
+        </div>
+          
+            <!-- Collapsible content -->
+            <!--<div class="collapse navbar-collapse" id="basicExampleNav">-->
+          <!--<form class="form-inline">-->
+          <!--  <div class="md-form my-0">-->
+          <!--    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">-->
+          <!--  </div>-->
+          <!--</form>-->
+            <ul class="navbar-nav">
+              <li class="nav-item from-inline">
+                <a class="btn btn-sm btn-primary px-3"  style="font-weight: bold;"  href="#">Join</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn text-dark" style="font-weight: bold;" href="#" style="">Sign&nbsp;In</a>
+              </li>
+            </ul>
+        <!--</div>-->
+      </div>
+            <!-- Collapsible content -->
+  </nav>  
+  
+  <nav class="navbar navbar-inverse navbar-expand-lg this-nav-bar">
+    <div class="container">
+      <div class="navbar-header">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+              aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
           
             <!-- Collapsible content -->
@@ -81,21 +101,21 @@ header[role="banner"] {
               <!-- Links -->
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Home
+                  <a class="nav-link" href="#">HOME
                     <span class="sr-only">(current)</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Features</a>
+                  <a class="nav-link" href="#">FEATURES</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Pricing</a>
+                  <a class="nav-link" href="#">PRICING</a>
                 </li>
           
                 <!-- Dropdown -->
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    aria-haspopup="true" aria-expanded="false">DROPDOWN</a>
                   <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Action</a>
                     <a class="dropdown-item" href="#">Another action</a>
@@ -113,12 +133,7 @@ header[role="banner"] {
               </ul>
               <!-- Links -->
               </div>
-        <!--</div>-->
-        <!--<form class="form-inline">-->
-        <!--        <div class="md-form my-0">-->
-        <!--          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">-->
-        <!--        </div>-->
-        <!--      </form>-->
+
       </div>
             <!-- Collapsible content -->
   </nav>  
@@ -128,6 +143,7 @@ header[role="banner"] {
       <!-- Content Goes here -->
       {% endblock content %}
 
+   {% block footer %} {% include 'blog/footer.html' %} {% endblock footer %}
     <!--</div>-->
     </body>
 </html>

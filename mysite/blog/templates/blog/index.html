@@ -100,13 +100,14 @@
 
 .big-box {
     height: 505px;
+    background-color: black;
 }
 
 .mini-box {
     height: 250px;
     /*padding-top: 15px;*/
     /*margin-top: 10px;*/
-    background-color: cyan;
+    background-color: black;
 }
 
 .mini-box, 
@@ -122,6 +123,7 @@
 
 .caro-item img  {
   width: 100%;
+  background-color: black;
 }
 
 .mini-box,
@@ -152,6 +154,7 @@ table td {
 /*.col-md-8, .col-md-4 {*/
     /*border: 1px solid red;*/
 /*}*/
+
 /*.big-box img.wide {*/
 /*        max-width: 100%;*/
 /*    max-height: 100%;*/
@@ -173,21 +176,21 @@ table td {
                 </ol>
                 <div class="carousel-inner">
                   <div class="carousel-item active caro-item">
-                    <img class="img-fluid" src="{% static "blog/images/la.jpg" %}" alt="First slide">
+                    <img class="img-fluid" src="https://i.imgur.com/NuqugTD.jpg" alt="First slide">
                   <!--<div class="carousel-caption d-none d-md-block">-->
                   <!--  <h5>First slide label</h5>-->
                   <!--  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>-->
                   <!--</div>-->
                   </div>
                   <div class="carousel-item caro-item">
-                    <img class="img-fluid" src="{% static "blog/images/chicago.jpg" %}" alt="Second slide">
+                    <img class="img-fluid" src="https://i.imgur.com/pBmNhc1.jpg" alt="Second slide">
                       <!--<div class="carousel-caption d-none d-md-block">-->
                       <!--  <h5>First slide label</h5>-->
                       <!--  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>-->
                       <!--</div>-->
                   </div>
                   <div class="carousel-item caro-item">
-                    <img class="img-fluid" src="{% static "blog/images/ny.jpg" %}" alt="Third slide">
+                    <img class="img-fluid" src="https://i.imgur.com/ZccahuC.jpg" alt="Third slide">
                   <!--<div class="carousel-caption d-none d-md-block">-->
                   <!--  <h5>First slide label</h5>-->
                   <!--  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>-->
@@ -205,7 +208,7 @@ table td {
               </div>
        {% endcomment %}
        <!--<img src="https://i.imgur.com/8jqYvFL.jpg" />-->
-                    <img class="img-fluid" src="{% static "blog/images/ny.jpg" %}" style="height: 505px;">
+                    <img class="img-fluid" src="https://i.imgur.com/4svLfsW.jpg" style="height: 505px;">
           </div>
       </div>
       
@@ -213,14 +216,14 @@ table td {
             <div class="row">
                  <div class="col">
                      <div class="mini-box">
-                        <img class="img-fluid" src="{% static "blog/images/chicago.jpg" %}" style="height: 250px;">
+                        <img class="img-fluid" src="https://i.imgur.com/7PSWr7s.jpg" style="height: 250px;">
                      </div>
                  </div>
             </div>
             <div class="row">
                  <div class="col">
                      <div class="mini-box">
-                        <img class="img-fluid" src="{% static "blog/images/la.jpg" %}" style="height: 250px;">
+                        <img class="img-fluid" src="https://i.imgur.com/1LF30id.jpg" style="height: 250px;">
                      </div>
                  </div>
             </div>
@@ -235,22 +238,22 @@ table td {
 				<div class="carousel-inner">
 					<div class="item active">
 						<div class="carousel-col">
-							<img class="d-block w-100" src="{% static "blog/images/chicago.jpg" %}" alt="First slide">
+							<img class="d-block w-100" src="https://i.imgur.com/1LF30id.jpg" alt="First slide">
 						</div>
 					</div>
 					<div class="item">
 						<div class="carousel-col">
-							<img class="d-block w-100" src="{% static "blog/images/ny.jpg" %}" alt="Second slide">
+							<img class="d-block w-100" src="https://i.imgur.com/I6Xgsio.jpg" alt="Second slide">
 						</div>
 					</div>
 					<div class="item">
 						<div class="carousel-col">
-							<img class="d-block w-100" src="{% static "blog/images/la.jpg" %}" alt="Third slide">
+							<img class="d-block w-100" src="https://i.imgur.com/oFQUCKx.jpg" alt="Third slide">
 						</div>
 					</div>
 					<div class="item">
 						<div class="carousel-col">
-							<img class="d-block w-100" src="{% static "blog/images/la.jpg" %}" alt="Third slide">
+							<img class="d-block w-100" src="https://i.imgur.com/VWn81YT.jpg" alt="Third slide">
 						</div>
 					</div>
 				</div>
@@ -277,9 +280,6 @@ table td {
 <div class="container">
     <!--<hr/>-->
 
-  <div class="row">
-        <!-- Blog Entries Column -->
-        <div class="col-md-8 mt-3 left">
             <div class="Category" style="border-bottom: 1px solid red; margin-top: 15px; margin-bottom: 15px;">
               <table>
                 <tr>
@@ -287,11 +287,15 @@ table td {
               </tr>
               </table>
             </div>
+  <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8 mt-3 left">
+
             {% for post in post_list %}
             <div class="card mb-4">
                 <div class="card-horizontal">
                     <div class="img-square-wrapper">
-                        <img class="" src="http://via.placeholder.com/200" alt="Card image cap">
+                        <img class="" src="https://i.imgur.com/vgZrB5U.jpg" style="height: 200px;" alt="Card image cap">
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">{{ post.title|slice:"60" }}</h4>
@@ -300,14 +304,30 @@ table td {
                         <a href="{% url 'blog:post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
                     </div>
                 </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
+                <!--<div class="card-footer">-->
+                <!--    <small class="text-muted">Last updated 3 mins ago</small>-->
+                <!--</div>-->
             </div>
             {% endfor %}
 
         </div>
+        <div class="col-md-4 left">
+            <div class="card my-4">
+                <h5 class="card-header text-white bg-dark">Most viewed</h5>
+                <div class="card-body">
+                    <!--<p class="card-text"> This awesome blog is made on the top of our Favourite full stack Framework 'Django', follow up the tutorial to learn how we made it..!</p>-->
+                    <!--<a href="#" class="btn btn-danger">Know more!</a>-->
+                    {% for post in post_list %}
+                    <!--<h5 class="card-title">{{ post.title|slice:"60" }}</h5>-->
+                    <a href="{% url 'blog:post_detail' post.slug  %}">{{ post.title|slice:"60" }}</a>
+                    <p class="card-text text-muted h6">{{ post.Author }} | {{ post.created_on}} </p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% comment %}
         {% block sidebar %} {% include 'blog/sidebar.html' %} {% endblock sidebar %}
+        {% endcomment %}
     </div>
  <div class="row">
         <!-- Blog Entries Column -->
@@ -322,7 +342,7 @@ table td {
             </div>
             <div class="card-deck">
               <div class="card">
-                <img class="card-img-top" src="http://via.placeholder.com/300x180" alt="Card image cap">
+                <img class="card-img-top" src="https://i.imgur.com/ZccahuC.jpg" style="height: 180px;"  alt="Card image cap">
                 <div class="card-body">
                   <h4 class="card-title">Card title</h4>
                   <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -330,7 +350,7 @@ table td {
                 </div>
               </div>
               <div class="card">
-                <img class="card-img-top" src="http://via.placeholder.com/300x180" alt="Card image cap">
+                <img class="card-img-top" src="https://i.imgur.com/O3lUGTr.jpg" style="height: 180px;" alt="Card image cap">
                 <div class="card-body">
                   <h4 class="card-title">Card title</h4>
                   <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
@@ -338,7 +358,7 @@ table td {
                 </div>
               </div>
               <div class="card">
-                <img class="card-img-top" src="http://via.placeholder.com/300x180" alt="Card image cap">
+                <img class="card-img-top" src="https://i.imgur.com/HwIbeq1.jpg" style="height: 180px;"  alt="Card image cap">
                 <div class="card-body">
                   <h4 class="card-title">Card title</h4>
                   <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
@@ -349,6 +369,5 @@ table td {
         </div>
     </div>
 </div>
-   {% block footer %} {% include 'blog/footer.html' %} {% endblock footer %}
     
 {%endblock%}

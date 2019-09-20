@@ -2,7 +2,7 @@
 body {
     font-family: "Roboto", sans-serif;
     font-size: 17px;
-    background-color: #fdfdfd;
+    /*background-color: #fdfdfd;*/
 }
 
 .shadow {
@@ -17,7 +17,7 @@ body {
 
 .masthead {
     /*background: #3398E1;*/
-    background: #2d3246;
+    /*background: #2d3246;*/
     height: auto;
     padding-bottom: 15px;
     box-shadow: 0 16px 48px #E3E7EB;
