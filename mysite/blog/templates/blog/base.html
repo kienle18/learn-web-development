@@ -2,148 +2,128 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <title>Blog</title>
-        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans"/>
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-        <meta name="google" content="notranslate" />
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1">
-          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<head>
+    <title>Blog</title>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <meta name="google" content="notranslate" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+</head>
 
-    </head>
+<body>
+    <nav class="navbar navbar-expand-md topnav">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="#">
+                    <img id="logo-main" src="{% static 'blog/images/hacker.svg' %}" width="80px"> HackBoards
+                </a>
+            </div>
 
-    <body>
+            <div class="col-sm-3 col-md-3 pull-right">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
 
-<style>
-    /*.context-dark, .bg-gray-dark, .bg-primary {*/
-    /*    color: rgba(255, 255, 255, 0.8);*/
-    /*}*/
-
-
-    /*.bs-example{*/
-    /*    margin: 20px;*/
-    /*}*/
-/*.navbar-default {*/
-/*    background-color: black;*/
-/*    border-color: green;*/
-/*}*/
-.navbar-brand {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.navbar {
-  /*font-family: Open Sans; */
-  font-family: sans-serif !important; 
-  /*font-size: 21px;*/
-  font-weight: bold;
-  border-color: 0.5px solid white;
-}
-
-.this-nav-bar {
-    /*background-color: #18354c;*/
-    background-color: #2b2d32;
-    color: white;
-    
-}
-
-</style>
-
-<header role="banner">
-  <!--<nav class="navbar navbar-inverse navbar-expand-lg">-->
-  <nav class="navbar navbar-inverse navbar-expand-lg">
-    <div class="container">
-      <div class="navbar-header">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-              aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <img id="logo-main" src="{% static 'blog/images/hb_logo.png' %}" width="200" alt="Logo Thing main logo">
+            <!--<ul class="nav navbar-nav ml-auto">-->
+            <!--<li class="nav-item from-inline">-->
+            <!--  <a class="btn btn-sm btn-primary px-3"  style="font-weight: bold;"  href="#">Join</a>-->
+            <!--</li>-->
+            <!--<li class="nav-item">-->
+            <!--  <a class="btn text-dark" style="font-weight: bold;" href="#" style="">Sign&nbsp;In</a>-->
+            <!--</li>-->
+            <!--</ul>-->
         </div>
-          
-            <!-- Collapsible content -->
-            <!--<div class="collapse navbar-collapse" id="basicExampleNav">-->
-          <!--<form class="form-inline">-->
-          <!--  <div class="md-form my-0">-->
-          <!--    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">-->
-          <!--  </div>-->
-          <!--</form>-->
-            <ul class="navbar-nav">
-              <li class="nav-item from-inline">
-                <a class="btn btn-sm btn-primary px-3"  style="font-weight: bold;"  href="#">Join</a>
-              </li>
-              <li class="nav-item">
-                <a class="btn text-dark" style="font-weight: bold;" href="#" style="">Sign&nbsp;In</a>
-              </li>
-            </ul>
-        <!--</div>-->
-      </div>
-            <!-- Collapsible content -->
-  </nav>  
-  
-  <nav class="navbar navbar-inverse navbar-expand-lg this-nav-bar">
-    <div class="container">
-      <div class="navbar-header">
+    </nav>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-              aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+    <nav class="navbar navbar-expand-md navbar-default" role="navigation">
+        <div class="container">
+            <!-- <a class="navbar-brand" href="#">
+                <img src="{% static 'blog/images/bootstrap-solid.svg' %}" width="36" height="36" alt="">
+              </a> -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+            <!-- Collapsible content -->
+            <div class="collapse navbar-collapse" id="mainNavigation">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item active">
+                        <!-- <li class="nav-item"> -->
+                        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Trading Services</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#">Trading</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Crypto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Wallet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Network</a>
+                    </li>
+
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">News</a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- <ul class="nav navbar-nav ml-auto ">
+            <li>
+                <a href="#" class="nav-link"><i class='fab fa-twitter' style='font-size:24px'></i></a>
+            </li>
+            <li>
+                <a href="#" class="nav-link"><i class='fab fa-facebook-f' style='font-size:24px'></i></a>
+            </li>
+            <li>
+                <a href="#" class="nav-link"><i class='fab fa-telegram' style='font-size:24px'></i></a>
+            </li>
+          </ul> -->
+            <div class="site-social-media">
+                <a class="btn-floating btn-lg btn-fb" type="button" role="button"><i class="fab fa-facebook " style="font-size: 24px;"></i></a>
+                <!--Twitter-->
+                <a class="btn-floating btn-lg btn-tw" type="button" role="button"><i class="fab fa-twitter " style="font-size: 24px;"></i></a>
+                <!--Youtube-->
+                <a class="btn-floating btn-lg btn-yt" type="button" role="button"><i class="fab fa-youtube " style="font-size: 24px;"></i></a>
+            </div>
         </div>
-          
-            <!-- Collapsible content -->
-            <div class="collapse navbar-collapse" id="basicExampleNav">
-          
-              <!-- Links -->
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">HOME
-                    <span class="sr-only">(current)</span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">FEATURES</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">PRICING</a>
-                </li>
-          
-                <!-- Dropdown -->
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">DROPDOWN</a>
-                  <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </li>
-            <ul class="nav navbar-nav ml-auto">
-                    <a href="#" class="nav-link"><i class="fa fa-camera-retro fa-lg"></i></a>
-                <li>
-                    <a href="#" class="nav-link"><i class="fa fa-twitter fa-lg"></i></a>
-                <li>
-                    <a href="#" class="nav-link"><i class="fa fa-pinterest fa-lg"></i></a>
-                </li>
-            </ul>          
-              </ul>
-              <!-- Links -->
-              </div>
 
-      </div>
-            <!-- Collapsible content -->
-  </nav>  
-  <!--</div>-->
+    </nav>
 
-      {% block content %}
-      <!-- Content Goes here -->
-      {% endblock content %}
+    {% block content %}
+    <!-- Content Goes here -->
+    {% endblock content %} {% block footer %} {% include 'blog/footer.html' %} {% endblock footer %}
 
-   {% block footer %} {% include 'blog/footer.html' %} {% endblock footer %}
-    <!--</div>-->
-    </body>
+</body>
+
 </html>

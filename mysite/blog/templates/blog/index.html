@@ -1,373 +1,566 @@
-{% extends "blog/base.html" %} 
+{% extends "blog/base.html" %}
 {% block content %}
 {% load static %}
 
 <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
     body {
-        font-family: "Roboto", sans-serif;
-        font-size: 18px;
-        background-color: #fdfdfd;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      background-color: #f2f4f6;
     }
-    
-    .head_text {
-        color: white;
-    }
-    
+
+    /*.head_text {*/
+    /*    color: white;*/
+    /*}*/
+
     /*.card {*/
     /*    box-shadow: 0 16px 48px #E3E7EB;*/
     /*}*/
-    
-.col-centered {
-    float: none;
-    margin: 0 auto;
-}
 
-.carousel-control { 
-    width: 8%;
-    width: 0px;
-}
-/*.carousel-control.left,*/
-/*.carousel-control.right { */
-/*    margin-right: 40px;*/
-/*    margin-left: 32px; */
-/*    background-image: none;*/
-/*    opacity: 1;*/
-/*}*/
-.carousel-control > a > span {
-    color: white;
-	  font-size: 29px !important;
-}
+    /*.col-centered {*/
+    /*    float: none;*/
+    /*    margin: 0 auto;*/
+    /*}*/
 
-.carousel-col { 
-    position: relative; 
-    min-height: 1px; 
-    padding-top: 5px; 
-    padding-bottom: 5px; 
-    float: left;
- }
+    /*.carousel-control { */
+    /*    width: 8%;*/
+    /*    width: 0px;*/
+    /*}*/
+    /*.carousel-control.left,*/
+    /*.carousel-control.right { */
+    /*    margin-right: 40px;*/
+    /*    margin-left: 32px; */
+    /*    background-image: none;*/
+    /*    opacity: 1;*/
+    /*}*/
+    .carousel-control>a>span {
+      color: white;
+      font-size: 29px !important;
+    }
 
-.carousel-inner > .item > .carousel-col {
-    border: 1px solid red;
-    /*margin-left: 2px;*/
-    padding-right: 5px;
-}
- .active > div { display:none; }
- .active > div:first-child { display:block; }
+    .carousel-col {
+      position: relative;
+      min-height: 1px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      float: left;
+    }
 
-/*xs*/
-@media (max-width: 767px) {
-  .carousel-inner .active.left { left: -50%; }
-  .carousel-inner .active.right { left: 50%; }
-	.carousel-inner .next        { left:  50%; }
-	.carousel-inner .prev		     { left: -50%; }
-  .carousel-col                { width: 50%; }
-	.active > div:first-child + div { display:block; }
-}
+    .carousel-inner>.item>.carousel-col {
+      border: 1px solid red;
+      /*margin-left: 2px;*/
+      padding-right: 5px;
+    }
 
-/*sm*/
-@media (min-width: 768px) and (max-width: 991px) {
-  .carousel-inner .active.left { left: -50%; }
-  .carousel-inner .active.right { left: 50%; }
-	.carousel-inner .next        { left:  50%; }
-	.carousel-inner .prev		     { left: -50%; }
-  .carousel-col                { width: 50%; }
-	.active > div:first-child + div { display:block; }
-}
+    .active>div {
+      display: none;
+    }
 
-/*md*/
-@media (min-width: 992px) and (max-width: 1199px) {
-  .carousel-inner .active.left { left: -33%; }
-  .carousel-inner .active.right { left: 33%; }
-	.carousel-inner .next        { left:  33%; }
-	.carousel-inner .prev		     { left: -33%; }
-  .carousel-col                { width: 33%; }
-	.active > div:first-child + div { display:block; }
-  .active > div:first-child + div + div { display:block; }
-}
+    .active>div:first-child {
+      display: block;
+    }
 
-/*lg*/
-@media (min-width: 1200px) {
-  .carousel-inner .active.left { left: -25%; }
-  .carousel-inner .active.right{ left:  25%; }
-	.carousel-inner .next        { left:  25%; }
-	.carousel-inner .prev		     { left: -25%; }
-  .carousel-col                { width: 25%; }
-	.active > div:first-child + div { display:block; }
-  .active > div:first-child + div + div { display:block; }
-	.active > div:first-child + div + div + div { display:block; }
-}
+    /*xs*/
+    @media (max-width: 767px) {
+      .carousel-inner .active.left {
+        left: -50%;
+      }
+
+      .carousel-inner .active.right {
+        left: 50%;
+      }
+
+      .carousel-inner .next {
+        left: 50%;
+      }
+
+      .carousel-inner .prev {
+        left: -50%;
+      }
+
+      .carousel-col {
+        width: 50%;
+      }
+
+      .active>div:first-child+div {
+        display: block;
+      }
+    }
+
+    /*sm*/
+    @media (min-width: 768px) and (max-width: 991px) {
+      .carousel-inner .active.left {
+        left: -50%;
+      }
+
+      .carousel-inner .active.right {
+        left: 50%;
+      }
+
+      .carousel-inner .next {
+        left: 50%;
+      }
+
+      .carousel-inner .prev {
+        left: -50%;
+      }
+
+      .carousel-col {
+        width: 50%;
+      }
+
+      .active>div:first-child+div {
+        display: block;
+      }
+    }
+
+    /*md*/
+    @media (min-width: 992px) and (max-width: 1199px) {
+      .carousel-inner .active.left {
+        left: -33%;
+      }
+
+      .carousel-inner .active.right {
+        left: 33%;
+      }
+
+      .carousel-inner .next {
+        left: 33%;
+      }
+
+      .carousel-inner .prev {
+        left: -33%;
+      }
+
+      .carousel-col {
+        width: 33%;
+      }
+
+      .active>div:first-child+div {
+        display: block;
+      }
+
+      .active>div:first-child+div+div {
+        display: block;
+      }
+    }
+
+    /*lg*/
+    @media (min-width: 1200px) {
+      .carousel-inner .active.left {
+        left: -25%;
+      }
+
+      .carousel-inner .active.right {
+        left: 25%;
+      }
+
+      .carousel-inner .next {
+        left: 25%;
+      }
+
+      .carousel-inner .prev {
+        left: -25%;
+      }
+
+      .carousel-col {
+        width: 25%;
+      }
+
+      .active>div:first-child+div {
+        display: block;
+      }
+
+      .active>div:first-child+div+div {
+        display: block;
+      }
+
+      .active>div:first-child+div+div+div {
+        display: block;
+      }
+    }
 
 
-.big-box {
-    height: 505px;
-    background-color: black;
-}
+    .big-box {
+      height: 505px;
+      /* background-color: black; */
+    }
 
-.mini-box {
-    height: 250px;
-    /*padding-top: 15px;*/
-    /*margin-top: 10px;*/
-    background-color: black;
-}
+    .mini-box {
+      height: 250px;
+      /* background-color: black; */
+    }
 
-.mini-box, 
-.big-box {
-    /*border: 1px solid red;*/
-    color: white;
-    text-align: center;
-    /*margin: 2px;*/
-    /*margin-top: 20px;*/
-    /*font-size: 1.5em;*/
-}
+    .mini-box,
+    .big-box {
+      /* border: 1px solid red; */
+      /* color: white; */
+      /* text-align: center; */
+      /*margin: 2px;*/
+      /*margin-top: 20px;*/
+      /*font-size: 1.5em;*/
+    }
 
 
-.caro-item img  {
-  width: 100%;
-  background-color: black;
-}
+    .caro-item img {
+      width: 100%;
+      background-color: black;
+    }
 
-.mini-box,
-.big-box img.tall {
-    max-height: 100%;
-    max-width: 100%;
-    width: auto;
-}
+    .mini-box,
+    .big-box .img {
+      max-height: 100%;
+      max-width: 100%;
+      width: auto;
+    }
 
-.col-md-4 > .row ~ .row {
-    /*border: 1px solid red;*/
-    /*background-color: blue;*/
-    padding-top: 5px;
-    margin-top: 5px;
-} 
+    .mini-box,
+    .big-box .img.tall {
+      max-height: 100%;
+      max-width: 100%;
+      width: auto;
+    }
 
-.card-horizontal {
-    display: flex;
-    flex: 1 1 auto;
-}
+    .col-md-4>.row~.row {
+      /*border: 1px solid red;*/
+      /*background-color: blue;*/
+      padding-top: 5px;
+      margin-top: 5px;
+    }
 
+    .card {
+      text-decoration: none;
+      border: none;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .card-horizontal {
+      display: flex;
+      flex: 1 1 auto;
+    }
 
+    /*.section-heading {*/
+    /*  position: relative;*/
+    /*  z-index: 1;*/
+      /* margin-bottom: 10px; */
+    /*  background-color: #f2f4f5;*/
+    /*  padding: 10px 15px;*/
+      /* border-left: 4px solid #ed3974; */
+    /*  border-left: 4px solid #E71D36;*/
+    /*  font-family: 'Poppins', sans-serif;*/
+    /*  color: #1a1a1a;*/
+    /*  line-height: 1.3;*/
+    /*  font-weight: 500*/
+    /*}*/
 
-table td {
-  color:white;
-}
+    .home-section-heading {
+      border-bottom: 1px solid orange;
+      display: table;
+      width: 100%;     
+    }
 
-/*.col-md-8, .col-md-4 {*/
-    /*border: 1px solid red;*/
-/*}*/
+    .home-section-heading-btn {
+            text-decoration: none;
+            display: table-cell;
+            /*width: 30%;*/
+            height: inherit;
+            margin: 0;
+            padding: 10px 10px;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            color: #010101;
+            background-color: orange;
+            border: 0;
+            border-radius: 0;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            outline: none;
+            -webkit-transition: background-color .15s;
+            -o-transition: background-color .15s;
+            transition: background-color .15s;
+            cursor: pointer;
+    }
 
-/*.big-box img.wide {*/
-/*        max-width: 100%;*/
-/*    max-height: 100%;*/
-/*    height: auto;*/
-/*}*/
+    .big-box img.wide {
+      max-width: 100%;
+      max-height: 100%;
+      height: auto;
+    }        
+          .media > a {
+              text-decoration: none;
+              font-size: 12px;
+          }
+
+          .media {
+              padding-top: 2px;
+          }
+
+          .home-news-tabs {
+            border-bottom: 2px solid orange;
+            display: table;
+            width: 100%;
+          }
+
+          .home-news-tabs-btn {
+            text-decoration: none;
+            display: table-cell;
+            width: 50%;
+            height: inherit;
+            margin: 0;
+            padding: 10px 5px;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            color: #010101;
+            background-color: transparent;
+            border: 0;
+            border-radius: 0;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            outline: none;
+            -webkit-transition: background-color .15s;
+            -o-transition: background-color .15s;
+            transition: background-color .15s;
+            cursor: pointer;
+                }
+
+          .home-news-tabs-btn:hover {
+            color: white;
+          }
+        .home-news-tabs-btn-active {
+            background-color: orange;
+
+        }
+        
+        
+        /* Homepage tiles */
+        /*.homepage-tiles > div {*/
+        /*  padding: 0;*/
+        /*  padding-top: 5px;*/
+        /*}*/
+        
+        /*@media (min-width: 992px) {*/
+        /*  .homepage-tiles > div {*/
+        /*    padding-right: 5px;*/
+        /*  }*/
+        /*}*/
+        
+        /*.homepage-tiles > .col-md-3 > div {*/
+        /*  height: 250px;*/
+        /*}*/
+        
+        /*.homepage-tiles > .col-md-6 > div {*/
+        /*  height: 505px;*/
+        /*}*/
+         
+        /*.homepage-tiles > .col-md-6 > .row > div {*/
+          /*height: 250px;*/
+        /*}*/
+               
+        /*.homepage-tiles {*/
+          /*display: none;*/
+        /*}*/
+          .previous,
+          .next {
+            background-color: #f1f1f1;
+            color: black;
+          }
+          
+          /*.next {*/
+          /*  background-color: #4CAF50;*/
+          /*  color: white;*/
+          /*}*/
+          
+          /*.round {*/
+            /*border-radius: 50%;*/
+          /*}*/
+          
+          .home-section-heading  {
+            border-bottom: 2px solid orange;
+          }
+          
+          .home-section-heading > .section-item-navigate > a {
+              text-decoration: none;
+              display: inline-block;
+              padding: 6px 16px;
+              /*float: right !important;*/
+          }
+          .home-section-heading > .section-item-navigate > a:hover {
+             background-color: cyan;
+              color: black; 
+          }
+          
+          .home-load-more {
+              border: 1px dashed black;
+              border-radius: 5px;
+              width: 100%;
+          }
+          
+          .home-load-more > button {
+            text-decoration: none;
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+            color: black;
+          }
+          .home-load-more > button:hover {
+              background-color: #f2f4f6;
+              color: white;
+          }
+          
 </style>
 
 
-<div class="container" style="padding-top: 15px;">
-    <div class="row">
-        <div class="col-md-8">
-              <div class="big-box">
-            {% comment %}
-              <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" style="padding-top: 15px;">
-                <ol class="carousel-indicators">
-                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                  <div class="carousel-item active caro-item">
-                    <img class="img-fluid" src="https://i.imgur.com/NuqugTD.jpg" alt="First slide">
-                  <!--<div class="carousel-caption d-none d-md-block">-->
-                  <!--  <h5>First slide label</h5>-->
-                  <!--  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>-->
-                  <!--</div>-->
-                  </div>
-                  <div class="carousel-item caro-item">
-                    <img class="img-fluid" src="https://i.imgur.com/pBmNhc1.jpg" alt="Second slide">
-                      <!--<div class="carousel-caption d-none d-md-block">-->
-                      <!--  <h5>First slide label</h5>-->
-                      <!--  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>-->
-                      <!--</div>-->
-                  </div>
-                  <div class="carousel-item caro-item">
-                    <img class="img-fluid" src="https://i.imgur.com/ZccahuC.jpg" alt="Third slide">
-                  <!--<div class="carousel-caption d-none d-md-block">-->
-                  <!--  <h5>First slide label</h5>-->
-                  <!--  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>-->
-                  <!--</div>-->
-                  </div>
-                </div>
-                  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-              </div>
-       {% endcomment %}
-       <!--<img src="https://i.imgur.com/8jqYvFL.jpg" />-->
-                    <img class="img-fluid" src="https://i.imgur.com/4svLfsW.jpg" style="height: 505px;">
+<div class="container" style="background-color: white;">
+  <!--<div class="row mt-3">-->
+  <div class="row homepage-tiles mt-3">
+            
+    <div class="col-md-6 tile-big-box">
+      <!--<div class="big-box">-->
+        <img class="img-fluid" src="https://via.placeholder.com/1500x505" style="height: 505px;">
+      <!--</div>-->
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+          <div class="col tile-min-box">
+            <img class="img-fluid" src="https://via.placeholder.com/250">
+          </div>
+        <div class="col tile-min-box">
+            <img class="img-fluid" src="https://via.placeholder.com/250">
           </div>
       </div>
-      
-         <div class="col-md-4">
-            <div class="row">
-                 <div class="col">
-                     <div class="mini-box">
-                        <img class="img-fluid" src="https://i.imgur.com/7PSWr7s.jpg" style="height: 250px;">
-                     </div>
-                 </div>
-            </div>
-            <div class="row">
-                 <div class="col">
-                     <div class="mini-box">
-                        <img class="img-fluid" src="https://i.imgur.com/1LF30id.jpg" style="height: 250px;">
-                     </div>
-                 </div>
-            </div>
-       </div>
-       
-    </div>
-
-	<div class="row">
-		<div class="col-md-12 col-centered">
-
-			<div id="carousel" class="carousel slide" data-ride="carousel" data-type="multi" data-interval="2500">
-				<div class="carousel-inner">
-					<div class="item active">
-						<div class="carousel-col">
-							<img class="d-block w-100" src="https://i.imgur.com/1LF30id.jpg" alt="First slide">
-						</div>
-					</div>
-					<div class="item">
-						<div class="carousel-col">
-							<img class="d-block w-100" src="https://i.imgur.com/I6Xgsio.jpg" alt="Second slide">
-						</div>
-					</div>
-					<div class="item">
-						<div class="carousel-col">
-							<img class="d-block w-100" src="https://i.imgur.com/oFQUCKx.jpg" alt="Third slide">
-						</div>
-					</div>
-					<div class="item">
-						<div class="carousel-col">
-							<img class="d-block w-100" src="https://i.imgur.com/VWn81YT.jpg" alt="Third slide">
-						</div>
-					</div>
-				</div>
-
-				 <!--Controls -->
-				<div class="left carousel-control">
-					<a href="#carousel" role="button" data-slide="prev">
-						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-						<span class="sr-only">Previous</span>
-					</a>
-				</div>
-				<div class="right carousel-control">
-					<a href="#carousel" role="button" data-slide="next">
-						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-						<span class="sr-only">Next</span>
-					</a>
-				</div>
-			</div>
-
-		</div>
-	</div>
-</div>
-
-<div class="container">
-    <!--<hr/>-->
-
-            <div class="Category" style="border-bottom: 1px solid red; margin-top: 15px; margin-bottom: 15px;">
-              <table>
-                <tr>
-                <td width="75%" bgcolor="red">Vehicle</td>
-              </tr>
-              </table>
-            </div>
-  <div class="row">
-        <!-- Blog Entries Column -->
-        <div class="col-md-8 mt-3 left">
-
-            {% for post in post_list %}
-            <div class="card mb-4">
-                <div class="card-horizontal">
-                    <div class="img-square-wrapper">
-                        <img class="" src="https://i.imgur.com/vgZrB5U.jpg" style="height: 200px;" alt="Card image cap">
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-title">{{ post.title|slice:"60" }}</h4>
-                        <p class="card-text text-muted h6">{{ post.Author }} | {{ post.created_on}} </p>
-                        <p class="card-text">{{post.content|slice:":110" }}</p>
-                        <a href="{% url 'blog:post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
-                    </div>
-                </div>
-                <!--<div class="card-footer">-->
-                <!--    <small class="text-muted">Last updated 3 mins ago</small>-->
-                <!--</div>-->
-            </div>
-            {% endfor %}
-
+      <div class="row">
+        <div class="col tile-min-box">
+            <img class="img-fluid" src="https://via.placeholder.com/250">
         </div>
-        <div class="col-md-4 left">
-            <div class="card my-4">
-                <h5 class="card-header text-white bg-dark">Most viewed</h5>
-                <div class="card-body">
-                    <!--<p class="card-text"> This awesome blog is made on the top of our Favourite full stack Framework 'Django', follow up the tutorial to learn how we made it..!</p>-->
-                    <!--<a href="#" class="btn btn-danger">Know more!</a>-->
-                    {% for post in post_list %}
-                    <!--<h5 class="card-title">{{ post.title|slice:"60" }}</h5>-->
-                    <a href="{% url 'blog:post_detail' post.slug  %}">{{ post.title|slice:"60" }}</a>
-                    <p class="card-text text-muted h6">{{ post.Author }} | {{ post.created_on}} </p>
-                    {% endfor %}
-                </div>
-            </div>
+        <div class="col tile-min-box">
+            <img class="img-fluid" src="https://via.placeholder.com/250">
         </div>
-        {% comment %}
-        {% block sidebar %} {% include 'blog/sidebar.html' %} {% endblock sidebar %}
-        {% endcomment %}
+      </div>
     </div>
- <div class="row">
-        <!-- Blog Entries Column -->
-        <div class="col-md-12 mt-3 left">
-            <div class="Category1" style="border-bottom: 1px solid blue; margin-top: 15px; margin-bottom: 15px;">
-              <table>
-                <tr>
-                <td width="75%" bgcolor="blue" color="white">
-                    <a href="#">Crypto</a></td>
-              </tr>
-              </table>
+  </div>
+
+    <div class="row mt-3">
+      <div class="col-md-12 col-centered">
+
+          <div class="home-section-heading">
+            <button class="btn home-section-heading-btn">Press Releases</button>
+            <div class="section-item-navigate float-right">
+              <a href="#" class="previous round">&#8249;</a>
+              <a href="#" class="next round">&#8250;</a>
             </div>
-            <div class="card-deck">
-              <div class="card">
-                <img class="card-img-top" src="https://i.imgur.com/ZccahuC.jpg" style="height: 180px;"  alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Card title</h4>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-              </div>
-              <div class="card">
-                <img class="card-img-top" src="https://i.imgur.com/O3lUGTr.jpg" style="height: 180px;" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Card title</h4>
-                  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-              </div>
-              <div class="card">
-                <img class="card-img-top" src="https://i.imgur.com/HwIbeq1.jpg" style="height: 180px;"  alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Card title</h4>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
+          </div>     
+        <div id="carousel" class="carousel slide mt-3" data-ride="carousel" data-type="multi" data-interval="2500">
+          <div class="carousel-inner">
+            <div class="item active">
+              <div class="carousel-col">
+                <img class="d-block w-100" src="https://via.placeholder.com/320x240" alt="First slide">
               </div>
             </div>
+            <div class="item">
+              <div class="carousel-col">
+                <img class="d-block w-100" src="https://via.placeholder.com/320x240" alt="First slide">
+              </div>
+            </div>
+            <div class="item">
+              <div class="carousel-col">
+                <img class="d-block w-100" src="https://via.placeholder.com/320x240" alt="First slide">
+              </div>
+            </div>
+            <div class="item">
+              <div class="carousel-col">
+                <img class="d-block w-100" src="https://via.placeholder.com/320x240" alt="First slide">
+              </div>
+            </div>
+          </div>
+  
+          <!--Controls -->
+          <div class="left carousel-control">
+            <a href="#carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </div>
+          <div class="right carousel-control">
+            <a href="#carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
         </div>
+  
+      </div>
     </div>
-</div>
+  
+    <div class="row mt-3">
+      <!-- Blog Entries Column -->
+      <!--<div class="col-md-8" style="background-color: white; box-shadow: 0 16px 48px #E3E7EB; ">-->
+      <div class="col-md-8">
+          <div class="home-section-heading">
+            <button class="btn home-section-heading-btn">Latest News</button>
+          </div>
+
+          {% for post in post_list|slice:":4" %}
+          <div class="card post-card">
+            <div class="card-horizontal">
+              <div class="img-square-wrapper">
+                <img class="" src="https://via.placeholder.com/200x135" style="height: 200px;" alt="Card image cap">
+              </div>
+              <div class="card-body">
+                <a href="{% url 'blog:post_detail' post.slug  %}"><h4 class="card-title">{{ post.title|slice:"60" }}</h4></a>
+                
+                <p class="card-text text-muted h6">{{ post.Author }} | {{ post.created_on}} </p>
+                <p class="card-text">{{post.content|slice:":110" }}</p>
+                <!--<a href="{% url 'blog:post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>-->
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          
+          <div class="home-load-more">
+          <button class="btn home-load-more-btn">LOAD MORE</button>
+          </div>
+      </div>
+
+      <div class="col-md-4">
+      <div class="home-news-tabs">
+        <button class="btn home-news-tabs-btn home-news-tabs-btn-active" title="Popular">Popular</button>
+        <button class="btn home-news-tabs-btn" title="Editor's Choice">Trending</button>
+      </div>
+
+      {% for post in post_list|slice:":5" %}
+      {% comment %}<div class="media" style="border-bottom: 1px solid #e8e8e8; padding-bottom: 5px;">{% endcomment %}
+      <div class="media">
+        <img class="mr-3" src="https://via.placeholder.com/80" alt="Generic placeholder image">
+        <div class="media-body">
+          <a href="{% url 'blog:post_detail' post.slug  %}">{{ post.title|slice:"60" }}</a>
+        </div>
+      </div>
+      {% endfor %}
+
+      <div class="home-section-category">
+          <div class="home-section-heading">
+            <button class="btn home-section-heading-btn">Category</button>
+          </div>
+          <ul class="list-group" style="border: none;">
+              {% for category in "0123"|make_list %}
+              <li class="list-group-item" style="border: none;"><a href="#">&#8250;&#8250; Cateogry n</a></li>
+              {% endfor %}
+          </ul>
+      </div>
+
+      </div>
+
+      </div>
     
-{%endblock%}
+    </div>
+
+    <script>
+
+    </script>
+
+  {%endblock%}

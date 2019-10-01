@@ -1,0 +1,70 @@
+{% block sidebarhome %}
+
+
+<style>
+        .sidebar-card {
+            border: none;
+        }
+
+        /* .sidebar-home {
+            box-shadow: 1 16px 48px #E3E7EB;
+        }
+
+        .sidebar-home.card {
+            box-shadow: 0 16px 48px #E3E7EB;
+        }
+
+        .sidebar-home.card.card-body {
+          border: none;
+        } */
+
+        #idHomeSidebar {
+          background-color: white;
+          /* margin-left: 2px; */
+        }
+        
+        .media > a {
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .media {
+            padding: 10px;
+        }
+
+</style>
+
+
+<!-- Sidebar Widgets Column -->
+<div class="col-md-4 float-right " style="background-color: white;">
+  <div class="sidebar-home" id="idHomeSidebar" style="background-color: white;">
+    <!-- <div class="section-heading mt-3 ml-2"> -->
+    <div class="section-heading mt-3">
+        <h5>Most Popular</h5>
+    </div>
+
+    {% for post in post_list %}
+    <div class="media">
+    <img class="mr-3" src="https://via.placeholder.com/100" alt="Generic placeholder image">
+    <div class="media-body">
+        <a href="{% url 'blog:post_detail' post.slug  %}">{{ post.title|slice:"60" }}</a>
+        {% comment %} Cras sit amet nibh libero, in gravida nulla. {% endcomment %}
+    </div>
+    </div>
+    {% endfor %}
+
+{% comment %}
+    {% for post in post_list %}
+    <div class="card sidebar-card">
+      <div class="card-body">
+          <a href="{% url 'blog:post_detail' post.slug  %}">{{ post.title|slice:"60" }}</a>
+          <p class="card-text text-muted h6">{{ post.Author }} | {{ post.created_on}} </p>
+      </div>
+    </div>
+    {% endfor %}
+{% endcomment %}
+
+  </div>
+</div>
+
+{% endblock sidebarhome %}

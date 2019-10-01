@@ -1,8 +1,25 @@
 {% extends 'blog/base.html' %} {% block content %}
 
+<style>
+  .breadcumb {
+    background-color: none!important;
+  }
+  .card-text {
+    line-height: 1.6;
+  }
+</style>
 <div class="container">
   <div class="row">
+    <!--<div class="col-md-8 left  top">-->
+      <!--</div>-->
     <div class="col-md-8 card mb-4  mt-3 left  top">
+      <nav aria-label="breadcrumb">
+          <ol class="breadcrumb bg-light">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">{{ post.category }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ post.title|slice:"24" }}...</li>
+          </ol>
+      </nav>
       <div class="card-body">
         <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
         <p class="text-muted">{{ post.author }} | {{ post.created_on }}</p>
